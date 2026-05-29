@@ -243,7 +243,7 @@ const Records: React.FC = () => {
           <Grid container spacing={4}>
             {/* Scopes */}
             <Grid item xs={12} sm={4}>
-              <Typography variant="subtitle2" color="text.secondary" gutterBottom fontWeight={600}>
+              <Typography variant="subtitle2" color="text.secondary" gutterBottom sx={{ fontWeight: 600 }}>
                 GHG Protocol Scopes
               </Typography>
               <FormGroup row>
@@ -269,7 +269,7 @@ const Records: React.FC = () => {
 
             {/* Ingestion Sources */}
             <Grid item xs={12} sm={4}>
-              <Typography variant="subtitle2" color="text.secondary" gutterBottom fontWeight={600}>
+              <Typography variant="subtitle2" color="text.secondary" gutterBottom sx={{ fontWeight: 600 }}>
                 Data Inflow Feeds
               </Typography>
               <FormGroup row>
@@ -295,7 +295,7 @@ const Records: React.FC = () => {
 
             {/* Workflow statuses */}
             <Grid item xs={12} sm={4}>
-              <Typography variant="subtitle2" color="text.secondary" gutterBottom fontWeight={600}>
+              <Typography variant="subtitle2" color="text.secondary" gutterBottom sx={{ fontWeight: 600 }}>
                 Verification State
               </Typography>
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>

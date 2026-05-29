@@ -176,7 +176,7 @@ const Upload: React.FC = () => {
                 />
                 <label htmlFor="csv-file-input" style={{ cursor: 'pointer', display: 'block', width: '100%' }}>
                   <CloudUploadIcon sx={{ fontSize: 48, color: 'text.secondary', mb: 2 }} />
-                  <Typography variant="subtitle1" fontWeight={600} gutterBottom>
+                  <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 600 }}>
                     {file ? file.name : 'Select or drag & drop CSV file'}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
@@ -224,7 +224,7 @@ const Upload: React.FC = () => {
                     <ErrorOutlineIcon color="warning" sx={{ fontSize: 36 }} />
                   )}
                   <Box>
-                    <Typography variant="subtitle1" fontWeight={700}>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
                       {result.file_name}
                     </Typography>
                     <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', mt: 0.5 }}>
@@ -242,7 +242,7 @@ const Upload: React.FC = () => {
                 <Grid container spacing={2} sx={{ mb: 4 }}>
                   <Grid item xs={4}>
                     <Paper variant="outlined" sx={{ p: 2, textAlign: 'center' }}>
-                      <Typography variant="h5" fontWeight={700}>
+                      <Typography variant="h5" sx={{ fontWeight: 700 }}>
                         {result.total_rows}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
@@ -252,7 +252,7 @@ const Upload: React.FC = () => {
                   </Grid>
                   <Grid item xs={4}>
                     <Paper variant="outlined" sx={{ p: 2, textAlign: 'center', borderLeft: '3px solid #2E7D32' }}>
-                      <Typography variant="h5" fontWeight={700} color="#2E7D32">
+                      <Typography variant="h5" color="#2E7D32" sx={{ fontWeight: 700 }}>
                         {result.successful_rows}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
@@ -262,7 +262,7 @@ const Upload: React.FC = () => {
                   </Grid>
                   <Grid item xs={4}>
                     <Paper variant="outlined" sx={{ p: 2, textAlign: 'center', borderLeft: result.failed_rows > 0 ? '3px solid #D32F2F' : '1px solid #E0E0E0' }}>
-                      <Typography variant="h5" fontWeight={700} color={result.failed_rows > 0 ? '#D32F2F' : 'text.primary'}>
+                      <Typography variant="h5" color={result.failed_rows > 0 ? '#D32F2F' : 'text.primary'} sx={{ fontWeight: 700 }}>
                         {result.failed_rows}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
@@ -289,7 +289,7 @@ const Upload: React.FC = () => {
                 {/* Error diagnostics */}
                 {result.error_summary && result.error_summary.length > 0 && (
                   <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                    <Typography variant="subtitle2" fontWeight={700} color="error" sx={{ mb: 1.5 }}>
+                    <Typography variant="subtitle2" color="error" sx={{ mb: 1.5, fontWeight: 700 }}>
                       Ingestion Quality & Normalization Errors
                     </Typography>
                     <TableContainer component={Paper} sx={{ flexGrow: 1, maxHeight: 200, overflow: 'auto', border: '1px solid #E0E0E0', boxShadow: 'none' }}>

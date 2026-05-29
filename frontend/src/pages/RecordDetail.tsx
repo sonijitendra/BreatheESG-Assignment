@@ -143,7 +143,7 @@ const RecordDetail: React.FC = () => {
           {/* 1. Normalized Core Ledger Details */}
           <Card sx={{ mb: 4 }}>
             <CardContent sx={{ p: 4 }}>
-              <Typography variant="h6" fontWeight={700} gutterBottom sx={{ mb: 3 }}>
+              <Typography variant="h6" gutterBottom sx={{ mb: 3, fontWeight: 700 }}>
                 Normalized Emission Record
               </Typography>
               
@@ -196,13 +196,13 @@ const RecordDetail: React.FC = () => {
           {wasConverted && (
             <Card sx={{ mb: 4, bgcolor: 'primary.main' + '04', border: '1px solid ' + 'rgba(0, 105, 92, 0.15)' }}>
               <CardContent sx={{ p: 4 }}>
-                <Typography variant="h6" fontWeight={700} color="primary" gutterBottom sx={{ mb: 2 }}>
+                <Typography variant="h6" color="primary" gutterBottom sx={{ mb: 2, fontWeight: 700 }}>
                   Standardization & Unit Conversion Log
                 </Typography>
                 <Grid container spacing={3}>
                   <Grid item xs={5} textAlign="center">
                     <Paper sx={{ p: 2, bgcolor: 'background.paper' }}>
-                      <Typography variant="h6" fontWeight={700}>
+                      <Typography variant="h6" sx={{ fontWeight: 700 }}>
                         {Number(record.original_quantity_value).toLocaleString(undefined, { maximumFractionDigits: 4 })}
                       </Typography>
                       <Typography variant="caption" color="text.secondary" sx={{ textTransform: 'uppercase' }}>
@@ -211,11 +211,11 @@ const RecordDetail: React.FC = () => {
                     </Paper>
                   </Grid>
                   <Grid item xs={2} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Typography variant="h5" color="primary" fontWeight={700}>→</Typography>
+                    <Typography variant="h5" color="primary" sx={{ fontWeight: 700 }}>→</Typography>
                   </Grid>
                   <Grid item xs={5} textAlign="center">
                     <Paper sx={{ p: 2, bgcolor: 'background.paper', border: '1.5px solid #00695C' }}>
-                      <Typography variant="h6" fontWeight={700} color="primary">
+                      <Typography variant="h6" color="primary" sx={{ fontWeight: 700 }}>
                         {Number(record.quantity_value).toLocaleString(undefined, { maximumFractionDigits: 4 })}
                       </Typography>
                       <Typography variant="caption" color="primary" sx={{ textTransform: 'uppercase', fontWeight: 600 }}>
@@ -231,18 +231,18 @@ const RecordDetail: React.FC = () => {
           {/* 3. Mathematical Formula Trace */}
           <Card sx={{ mb: 4 }}>
             <CardContent sx={{ p: 4 }}>
-              <Typography variant="h6" fontWeight={700} gutterBottom sx={{ mb: 3 }}>
+              <Typography variant="h6" gutterBottom sx={{ mb: 3, fontWeight: 700 }}>
                 Carbon footprint Audit Trail
               </Typography>
               
               <Paper variant="outlined" sx={{ p: 3, mb: 3, bgcolor: 'background.default', textAlign: 'center' }}>
-                <Typography variant="caption" color="text.secondary" display="block" gutterBottom fontWeight={600}>
+                <Typography variant="caption" color="text.secondary" display="block" gutterBottom sx={{ fontWeight: 600 }}>
                   CALCULATION FORMULA
                 </Typography>
-                <Typography variant="h6" fontWeight={700} sx={{ fontStyle: 'italic', color: 'primary.dark' }}>
+                <Typography variant="h6" sx={{ fontStyle: 'italic', color: 'primary.dark', fontWeight: 700 }}>
                   {Number(record.quantity_value).toLocaleString(undefined, { maximumFractionDigits: 4 })} {record.quantity_unit} × {Number(record.emission_factor_value).toFixed(6)} {record.original_quantity_unit === 'spend_usd' ? 'kgCO2e/spend' : 'kgCO2e/' + record.quantity_unit}
                 </Typography>
-                <Typography variant="h5" fontWeight={800} sx={{ mt: 2, color: 'text.primary' }}>
+                <Typography variant="h5" sx={{ mt: 2, color: 'text.primary', fontWeight: 800 }}>
                   = {Number(record.co2e_kg).toLocaleString(undefined, { maximumFractionDigits: 2 })} kgCO₂e ({Number(record.co2e_tonnes).toFixed(6)} tCO₂e)
                 </Typography>
               </Paper>
@@ -270,7 +270,7 @@ const RecordDetail: React.FC = () => {
           {record.flags && record.flags.length > 0 && (
             <Card sx={{ mb: 4, borderLeft: '4px solid #D32F2F' }}>
               <CardContent sx={{ p: 4 }}>
-                <Typography variant="h6" fontWeight={700} color="error" gutterBottom sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+                <Typography variant="h6" color="error" gutterBottom sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1, fontWeight: 700 }}>
                   <WarningIcon />
                   Quality Validation Alerts ({record.flags.length})
                 </Typography>
@@ -288,7 +288,7 @@ const RecordDetail: React.FC = () => {
           {/* 5. Immutable raw record payload */}
           <Card>
             <CardContent sx={{ p: 4 }}>
-              <Typography variant="h6" fontWeight={700} gutterBottom sx={{ mb: 3 }}>
+              <Typography variant="h6" gutterBottom sx={{ mb: 3, fontWeight: 700 }}>
                 Raw Source Record (Ingested Payload)
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
@@ -324,7 +324,7 @@ const RecordDetail: React.FC = () => {
           {/* Action workspace */}
           <Card sx={{ mb: 4, position: 'sticky', top: 96 }}>
             <CardContent sx={{ p: 4 }}>
-              <Typography variant="h6" fontWeight={700} gutterBottom sx={{ mb: 3 }}>
+              <Typography variant="h6" gutterBottom sx={{ mb: 3, fontWeight: 700 }}>
                 analyst review workspace
               </Typography>
 
@@ -339,7 +339,7 @@ const RecordDetail: React.FC = () => {
               {isLocked ? (
                 <Paper sx={{ p: 3, textAlign: 'center', bgcolor: 'secondary.light' + '10', border: '1.5px solid #757575' }}>
                   <LockIcon sx={{ fontSize: 48, color: 'text.disabled', mb: 2 }} />
-                  <Typography variant="h6" fontWeight={700} gutterBottom>
+                  <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>
                     Sealed & Locked for Audit
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
@@ -445,7 +445,7 @@ const RecordDetail: React.FC = () => {
               <Divider sx={{ my: 3 }} />
 
               {/* Timeline review history */}
-              <Typography variant="subtitle1" fontWeight={700} gutterBottom sx={{ mb: 2 }}>
+              <Typography variant="subtitle1" gutterBottom sx={{ mb: 2, fontWeight: 700 }}>
                 Verification Timeline & History
               </Typography>
 
@@ -471,7 +471,7 @@ const RecordDetail: React.FC = () => {
                         }
                       >
                         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                          <Typography variant="subtitle2" fontWeight={700}>
+                          <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
                             {action.action.toUpperCase()} by {action.performed_by}
                           </Typography>
                           <Typography variant="caption" color="text.secondary">
