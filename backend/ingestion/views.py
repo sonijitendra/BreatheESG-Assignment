@@ -3,7 +3,6 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
-from django.shortcuts import get_object_or_anchor
 from .models import DataSource, IngestionJob, RawRecord
 from core.models import Tenant
 from .serializers import DataSourceSerializer, IngestionJobSerializer, RawRecordSerializer
