@@ -100,11 +100,12 @@ export async function getEmissionRecord(
 export async function reviewRecord(
   id: string,
   action: string,
-  reason?: string
+  reason?: string,
+  performedBy?: string
 ): Promise<EmissionRecord> {
   const { data } = await api.post<EmissionRecord>(
     `/api/${TENANT}/records/${id}/review/`,
-    { action, reason }
+    { action, reason, performed_by: performedBy }
   );
   return data;
 }
@@ -112,11 +113,12 @@ export async function reviewRecord(
 export async function bulkReview(
   ids: string[],
   action: string,
+  performedBy: string,
   reason?: string
 ): Promise<BulkReviewResult> {
   const { data } = await api.post<BulkReviewResult>(
     `/api/${TENANT}/records/bulk-review/`,
-    { ids, action, reason }
+    { record_ids: ids, action, performed_by: performedBy, reason }
   );
   return data;
 }

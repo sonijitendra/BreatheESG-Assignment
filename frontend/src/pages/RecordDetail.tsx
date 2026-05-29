@@ -14,6 +14,7 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import CircularProgress from '@mui/material/CircularProgress';
 import Stepper from '@mui/material/Stepper';
@@ -25,7 +26,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import GavelIcon from '@mui/icons-material/Gavel';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
-import type { EmissionRecord } from '../types';
+import type { EmissionRecordDetail } from '../types';
 import { getEmissionRecord, reviewRecord } from '../api/client';
 import StatusChip from '../components/StatusChip';
 import ScopeChip from '../components/ScopeChip';
@@ -36,7 +37,7 @@ const RecordDetail: React.FC = () => {
   
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [record, setRecord] = useState<EmissionRecord | null>(null);
+  const [record, setRecord] = useState<EmissionRecordDetail | null>(null);
   
   // Action form state
   const [note, setNote] = useState('');
@@ -65,7 +66,7 @@ const RecordDetail: React.FC = () => {
   const handleAction = (actionName: 'review' | 'flag' | 'approve' | 'reject' | 'lock') => {
     if (!record || !id) return;
     
-    if (actionName === 'reject' && !note.strip()) {
+    if (actionName === 'reject' && !note.trim()) {
       setActionError('Analyst justification notes are required for rejections.');
       return;
     }
@@ -139,7 +140,7 @@ const RecordDetail: React.FC = () => {
 
       <Grid container spacing={4}>
         {/* LEFT COLUMN: Ledger Details & Calculations */}
-        <Grid item xs={12} md={7}>
+        <Grid size={{ xs: 12, md: 7 }}>
           {/* 1. Normalized Core Ledger Details */}
           <Card sx={{ mb: 4 }}>
             <CardContent sx={{ p: 4 }}>
@@ -200,7 +201,7 @@ const RecordDetail: React.FC = () => {
                   Standardization & Unit Conversion Log
                 </Typography>
                 <Grid container spacing={3}>
-                  <Grid item xs={5} textAlign="center">
+                  <Grid size={5} sx={{ textAlign: 'center' }}>
                     <Paper sx={{ p: 2, bgcolor: 'background.paper' }}>
                       <Typography variant="h6" sx={{ fontWeight: 700 }}>
                         {Number(record.original_quantity_value).toLocaleString(undefined, { maximumFractionDigits: 4 })}
@@ -210,10 +211,10 @@ const RecordDetail: React.FC = () => {
                       </Typography>
                     </Paper>
                   </Grid>
-                  <Grid item xs={2} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Grid size={2} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Typography variant="h5" color="primary" sx={{ fontWeight: 700 }}>→</Typography>
                   </Grid>
-                  <Grid item xs={5} textAlign="center">
+                  <Grid size={5} sx={{ textAlign: 'center' }}>
                     <Paper sx={{ p: 2, bgcolor: 'background.paper', border: '1.5px solid #00695C' }}>
                       <Typography variant="h6" color="primary" sx={{ fontWeight: 700 }}>
                         {Number(record.quantity_value).toLocaleString(undefined, { maximumFractionDigits: 4 })}
@@ -236,7 +237,7 @@ const RecordDetail: React.FC = () => {
               </Typography>
               
               <Paper variant="outlined" sx={{ p: 3, mb: 3, bgcolor: 'background.default', textAlign: 'center' }}>
-                <Typography variant="caption" color="text.secondary" display="block" gutterBottom sx={{ fontWeight: 600 }}>
+                <Typography variant="caption" color="text.secondary" gutterBottom sx={{ display: 'block', fontWeight: 600 }}>
                   CALCULATION FORMULA
                 </Typography>
                 <Typography variant="h6" sx={{ fontStyle: 'italic', color: 'primary.dark', fontWeight: 700 }}>
@@ -258,7 +259,7 @@ const RecordDetail: React.FC = () => {
                     </TableRow>
                     <TableRow hover>
                       <TableCell sx={{ fontWeight: 600 }}>Factor Source Reference</TableCell>
-                      <TableCell>{record.emission_factor ? record.flags.includes('Spend-based estimation') ? 'EEIO spend fallback' : 'DEFRA 2024 Conversion Factors' : 'Seeded Standard Factor'}</TableCell>
+                      <TableCell>{record.emission_factor_value !== null ? record.flags.includes('Spend-based estimation') ? 'EEIO spend fallback' : 'DEFRA 2024 Conversion Factors' : 'Seeded Standard Factor'}</TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
@@ -320,7 +321,7 @@ const RecordDetail: React.FC = () => {
         </Grid>
 
         {/* RIGHT COLUMN: Review panel & timeline history */}
-        <Grid item xs={12} md={5}>
+        <Grid size={{ xs: 12, md: 5 }}>
           {/* Action workspace */}
           <Card sx={{ mb: 4, position: 'sticky', top: 96 }}>
             <CardContent sx={{ p: 4 }}>

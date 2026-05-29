@@ -118,13 +118,16 @@ const Layout: React.FC = () => {
                     >
                       {item.icon}
                     </ListItemIcon>
-                    <ListItemText
-                      primary={item.text}
-                      primaryTypographyProps={{
-                        fontWeight: isSelected ? 700 : 500,
-                        fontSize: '0.9rem',
-                      }}
-                    />
+                    <ListItemText>
+                      <Typography
+                        sx={{
+                          fontWeight: isSelected ? 700 : 500,
+                          fontSize: '0.9rem',
+                        }}
+                      >
+                        {item.text}
+                      </Typography>
+                    </ListItemText>
                   </ListItemButton>
                 </ListItem>
               );

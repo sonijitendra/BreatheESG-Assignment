@@ -19,7 +19,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import ErrorIcon from '@mui/icons-material/Error';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { getDataSources, uploadFile } from '../api/client';
 import type { DataSource, IngestionJob } from '../types';
@@ -120,7 +120,7 @@ const Upload: React.FC = () => {
 
       <Grid container spacing={4}>
         {/* Upload configuration form */}
-        <Grid item xs={12} md={result ? 5 : 12}>
+        <Grid size={{ xs: 12, md: result ? 5 : 12 }}>
           <Card>
             <CardContent sx={{ p: 4 }}>
               <Typography variant="h6" gutterBottom sx={{ mb: 3, fontWeight: 600 }}>
@@ -209,7 +209,7 @@ const Upload: React.FC = () => {
 
         {/* Results Workspace */}
         {result && (
-          <Grid item xs={12} md={7}>
+          <Grid size={{ xs: 12, md: 7 }}>
             <Card sx={{ height: '100%' }}>
               <CardContent sx={{ p: 4, height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <Typography variant="h6" gutterBottom sx={{ mb: 3, fontWeight: 600 }}>
@@ -221,7 +221,7 @@ const Upload: React.FC = () => {
                   {result.status === 'completed' ? (
                     <CheckCircleIcon color="success" sx={{ fontSize: 36 }} />
                   ) : (
-                    <ErrorOutlineIcon color="warning" sx={{ fontSize: 36 }} />
+                    <ErrorIcon color="warning" sx={{ fontSize: 36 }} />
                   )}
                   <Box>
                     <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
@@ -240,7 +240,7 @@ const Upload: React.FC = () => {
 
                 {/* Import statistics */}
                 <Grid container spacing={2} sx={{ mb: 4 }}>
-                  <Grid item xs={4}>
+                  <Grid size={4}>
                     <Paper variant="outlined" sx={{ p: 2, textAlign: 'center' }}>
                       <Typography variant="h5" sx={{ fontWeight: 700 }}>
                         {result.total_rows}
@@ -250,7 +250,7 @@ const Upload: React.FC = () => {
                       </Typography>
                     </Paper>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid size={4}>
                     <Paper variant="outlined" sx={{ p: 2, textAlign: 'center', borderLeft: '3px solid #2E7D32' }}>
                       <Typography variant="h5" color="#2E7D32" sx={{ fontWeight: 700 }}>
                         {result.successful_rows}
@@ -260,7 +260,7 @@ const Upload: React.FC = () => {
                       </Typography>
                     </Paper>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid size={4}>
                     <Paper variant="outlined" sx={{ p: 2, textAlign: 'center', borderLeft: result.failed_rows > 0 ? '3px solid #D32F2F' : '1px solid #E0E0E0' }}>
                       <Typography variant="h5" color={result.failed_rows > 0 ? '#D32F2F' : 'text.primary'} sx={{ fontWeight: 700 }}>
                         {result.failed_rows}

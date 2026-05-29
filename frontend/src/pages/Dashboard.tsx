@@ -41,7 +41,7 @@ const Dashboard: React.FC = () => {
         <Skeleton variant="text" sx={{ fontSize: '2rem', mb: 4, width: '40%' }} />
         <Grid container spacing={3} sx={{ mb: 4 }}>
           {[1, 2, 3, 4].map((i) => (
-            <Grid item xs={12} sm={6} md={3} key={i}>
+            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={i}>
               <Card sx={{ height: 120 }}>
                 <CardContent>
                   <Skeleton variant="rectangular" height={20} sx={{ mb: 1, width: '60%' }} />
@@ -52,10 +52,10 @@ const Dashboard: React.FC = () => {
           ))}
         </Grid>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={7}>
+          <Grid size={{ xs: 12, md: 7 }}>
             <Skeleton variant="rectangular" height={350} />
           </Grid>
-          <Grid item xs={12} md={5}>
+          <Grid size={{ xs: 12, md: 5 }}>
             <Skeleton variant="rectangular" height={350} />
           </Grid>
         </Grid>
@@ -102,7 +102,7 @@ const Dashboard: React.FC = () => {
 
       {/* KPI Cards Grid */}
       <Grid container spacing={3} sx={{ mb: 4 }}>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Card sx={{ borderLeft: '4px solid #00695C' }}>
             <CardContent>
               <Typography color="text.secondary" variant="subtitle2" gutterBottom>
@@ -114,7 +114,7 @@ const Dashboard: React.FC = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Card sx={{ borderLeft: '4px solid #1565C0' }}>
             <CardContent>
               <Typography color="text.secondary" variant="subtitle2" gutterBottom>
@@ -126,7 +126,7 @@ const Dashboard: React.FC = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Card sx={{ borderLeft: '4px solid #F57C00' }}>
             <CardContent>
               <Typography color="text.secondary" variant="subtitle2" gutterBottom>
@@ -138,7 +138,7 @@ const Dashboard: React.FC = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Card sx={{ borderLeft: '4px solid #2E7D32' }}>
             <CardContent>
               <Typography color="text.secondary" variant="subtitle2" gutterBottom>
@@ -155,7 +155,7 @@ const Dashboard: React.FC = () => {
       {/* Main Charts Workspace */}
       <Grid container spacing={3} sx={{ mb: 4 }}>
         {/* Scope Chart */}
-        <Grid item xs={12} md={7}>
+        <Grid size={{ xs: 12, md: 7 }}>
           <Card sx={{ height: 420 }}>
             <CardContent>
               <Typography variant="h6" gutterBottom sx={{ mb: 3 }}>
@@ -178,7 +178,7 @@ const Dashboard: React.FC = () => {
         </Grid>
 
         {/* Status Pie Chart */}
-        <Grid item xs={12} md={5}>
+        <Grid size={{ xs: 12, md: 5 }}>
           <Card sx={{ height: 420 }}>
             <CardContent>
               <Typography variant="h6" gutterBottom>
@@ -200,9 +200,9 @@ const Dashboard: React.FC = () => {
                         outerRadius={95}
                         fill="#8884d8"
                         dataKey="value"
-                        label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
+                        label={({ name, percent }) => `${name} (${percent ? (percent * 100).toFixed(0) : 0}%)`}
                       >
-                        {statusPieData.map((entry, index) => (
+                        {statusPieData.map((_, index) => (
                           <Cell key={`cell-${index}`} fill={statusColors[index % statusColors.length]} />
                         ))}
                       </Pie>
@@ -218,7 +218,7 @@ const Dashboard: React.FC = () => {
 
       <Grid container spacing={3} sx={{ mb: 4 }}>
         {/* Source emissions */}
-        <Grid item xs={12} md={5}>
+        <Grid size={{ xs: 12, md: 5 }}>
           <Card sx={{ height: 420 }}>
             <CardContent>
               <Typography variant="h6" gutterBottom sx={{ mb: 3 }}>
@@ -241,7 +241,7 @@ const Dashboard: React.FC = () => {
         </Grid>
 
         {/* Recent Ingestion Jobs */}
-        <Grid item xs={12} md={7}>
+        <Grid size={{ xs: 12, md: 7 }}>
           <Card sx={{ height: 420, overflow: 'hidden' }}>
             <CardContent sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
               <Typography variant="h6" gutterBottom sx={{ mb: 2 }}>
@@ -272,7 +272,7 @@ const Dashboard: React.FC = () => {
                             {job.file_name}
                           </TableCell>
                           <TableCell sx={{ textTransform: 'uppercase' }}>
-                            {job.data_source_type}
+                            {job.data_source.source_type}
                           </TableCell>
                           <TableCell>
                             {job.successful_rows} / {job.total_rows}

@@ -115,6 +115,7 @@ export interface AuditFilters {
 }
 
 export interface BulkReviewResult {
-  updated: number;
+  successful_count: number;
+  failed_count: number;
   errors: string[];
 }

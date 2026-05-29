@@ -6,8 +6,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -25,7 +25,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import WarningIcon from '@mui/icons-material/Warning';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ClearIcon from '@mui/icons-material/Clear';
 import Tooltip from '@mui/material/Tooltip';
 import Alert from '@mui/material/Alert';
@@ -178,55 +178,67 @@ const Records: React.FC = () => {
         Analytical Emission Ledger
       </Typography>
 
+      {error && (
+        <Alert severity="error" sx={{ mb: 3 }}>
+          {error}
+        </Alert>
+      )}
+
       {/* Dynamic Filters Workspace */}
       <Card sx={{ mb: 4 }}>
         <CardContent sx={{ p: 3 }}>
           <Box component="form" onSubmit={handleSearchSubmit}>
-            <Grid container spacing={3} alignItems="center">
+            <Grid container spacing={3} sx={{ alignItems: 'center' }}>
               {/* Keyword Search */}
-              <Grid item xs={12} md={4}>
+              <Grid size={{ xs: 12, md: 4 }}>
                 <TextField
                   fullWidth
                   label="Search ledger"
                   placeholder="Material, Vendor, Description..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <SearchIcon />
-                      </InputAdornment>
-                    ),
+                  slotProps={{
+                    input: {
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <SearchIcon />
+                        </InputAdornment>
+                      ),
+                    }
                   }}
                 />
               </Grid>
 
               {/* Start Date */}
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                 <TextField
                   fullWidth
                   type="date"
                   label="Activity Date From"
-                  InputLabelProps={{ shrink: true }}
+                  slotProps={{
+                    inputLabel: { shrink: true }
+                  }}
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
                 />
               </Grid>
 
               {/* End Date */}
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                 <TextField
                   fullWidth
                   type="date"
                   label="Activity Date To"
-                  InputLabelProps={{ shrink: true }}
+                  slotProps={{
+                    inputLabel: { shrink: true }
+                  }}
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
                 />
               </Grid>
 
               {/* Submit / Clear */}
-              <Grid item xs={12} md={2} sx={{ display: 'flex', gap: 1 }}>
+              <Grid size={{ xs: 12, md: 2 }} sx={{ display: 'flex', gap: 1 }}>
                 <Button type="submit" variant="contained" color="primary" fullWidth sx={{ fontWeight: 600 }}>
                   Search
                 </Button>
@@ -242,7 +254,7 @@ const Records: React.FC = () => {
           {/* Checklist Multi-Select Groups */}
           <Grid container spacing={4}>
             {/* Scopes */}
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <Typography variant="subtitle2" color="text.secondary" gutterBottom sx={{ fontWeight: 600 }}>
                 GHG Protocol Scopes
               </Typography>
@@ -268,7 +280,7 @@ const Records: React.FC = () => {
             </Grid>
 
             {/* Ingestion Sources */}
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <Typography variant="subtitle2" color="text.secondary" gutterBottom sx={{ fontWeight: 600 }}>
                 Data Inflow Feeds
               </Typography>
@@ -294,7 +306,7 @@ const Records: React.FC = () => {
             </Grid>
 
             {/* Workflow statuses */}
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <Typography variant="subtitle2" color="text.secondary" gutterBottom sx={{ fontWeight: 600 }}>
                 Verification State
               </Typography>
@@ -336,7 +348,7 @@ const Records: React.FC = () => {
                 variant="contained"
                 color="primary"
                 size="small"
-                startIcon={<CheckCircleOutlineIcon />}
+                startIcon={<CheckCircleIcon />}
                 disabled={bulkProcessing}
                 onClick={() => handleBulkAction('review')}
               >
@@ -346,7 +358,7 @@ const Records: React.FC = () => {
                 variant="contained"
                 color="success"
                 size="small"
-                startIcon={<CheckCircleOutlineIcon />}
+                startIcon={<CheckCircleIcon />}
                 disabled={bulkProcessing}
                 onClick={() => handleBulkAction('approve')}
               >

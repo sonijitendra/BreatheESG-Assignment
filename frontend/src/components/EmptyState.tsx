@@ -32,7 +32,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
       <Typography variant="h6" color="text.secondary" gutterBottom>
         {title}
       </Typography>
-      <Typography variant="body2" color="text.secondary" textAlign="center">
+      <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center' }}>
         {message}
       </Typography>
     </Box>

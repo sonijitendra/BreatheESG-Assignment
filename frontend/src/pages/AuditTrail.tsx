@@ -17,13 +17,12 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
 import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
 import Link from '@mui/material/Link';
-import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import Chip from '@mui/material/Chip';
-import type { ReviewAction } from '../types';
 import { getAuditTrail } from '../api/client';
 
 const AuditTrail: React.FC = () => {
@@ -109,27 +108,39 @@ const AuditTrail: React.FC = () => {
         It provides third-party financial auditors with an append-only, chronologically sorted timeline of data custody.
       </Typography>
 
+      {error && (
+        <Typography color="error" sx={{ mb: 2, fontWeight: 500 }}>
+          {error}
+        </Typography>
+      )}
+
       {/* Filters Card */}
       <Card sx={{ mb: 4 }}>
         <CardContent sx={{ p: 3 }}>
           <Box component="form" onSubmit={handleSearchSubmit}>
-            <Grid container spacing={3} alignItems="center">
+            <Grid container spacing={3} sx={{ alignItems: 'center' }}>
               {/* Search */}
-              <Grid item xs={12} md={3}>
+              <Grid size={{ xs: 12, md: 3 }}>
                 <TextField
                   fullWidth
                   label="Search performed by"
                   placeholder="Analyst name, IP..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  InputProps={{
-                    startAdornment: <SearchIcon color="action" sx={{ mr: 1 }} />,
+                  slotProps={{
+                    input: {
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <SearchIcon color="action" sx={{ mr: 1 }} />
+                        </InputAdornment>
+                      ),
+                    }
                   }}
                 />
               </Grid>
 
               {/* Action type */}
-              <Grid item xs={12} sm={6} md={2.5}>
+              <Grid size={{ xs: 12, sm: 6, md: 2.5 }}>
                 <TextField
                   select
                   fullWidth
@@ -148,7 +159,7 @@ const AuditTrail: React.FC = () => {
               </Grid>
 
               {/* Entity Type */}
-              <Grid item xs={12} sm={6} md={2.5}>
+              <Grid size={{ xs: 12, sm: 6, md: 2.5 }}>
                 <TextField
                   select
                   fullWidth
@@ -167,31 +178,35 @@ const AuditTrail: React.FC = () => {
               </Grid>
 
               {/* Start Date */}
-              <Grid item xs={12} sm={6} md={2}>
+              <Grid size={{ xs: 12, sm: 6, md: 2 }}>
                 <TextField
                   fullWidth
                   type="date"
                   label="Mutated Date From"
-                  InputLabelProps={{ shrink: true }}
+                  slotProps={{
+                    inputLabel: { shrink: true }
+                  }}
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
                 />
               </Grid>
 
               {/* End Date */}
-              <Grid item xs={12} sm={6} md={2}>
+              <Grid size={{ xs: 12, sm: 6, md: 2 }}>
                 <TextField
                   fullWidth
                   type="date"
                   label="Mutated Date To"
-                  InputLabelProps={{ shrink: true }}
+                  slotProps={{
+                    inputLabel: { shrink: true }
+                  }}
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
                 />
               </Grid>
 
               {/* Actions */}
-              <Grid item xs={12} md={12} sx={{ display: 'flex', justifyContent: 'flex-end', gap: 1, mt: 1 }}>
+              <Grid size={{ xs: 12, md: 12 }} sx={{ display: 'flex', justifyContent: 'flex-end', gap: 1, mt: 1 }}>
                 <IconButton onClick={clearFilters} color="secondary" title="Clear filters">
                   <ClearIcon />
                 </IconButton>

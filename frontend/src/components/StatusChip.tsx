@@ -1,6 +1,6 @@
 import React from 'react';
 import Chip from '@mui/material/Chip';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import FlagIcon from '@mui/icons-material/Flag';
 import RateReviewIcon from '@mui/icons-material/RateReview';
@@ -34,7 +34,7 @@ const statusConfig: Record<
   },
   approved: {
     label: 'Approved',
-    icon: <CheckCircleOutlineIcon fontSize="small" />,
+    icon: <CheckCircleIcon fontSize="small" />,
     colorKey: 'approved',
   },
   rejected: {
