@@ -1,0 +1,13 @@
+Account Number,Meter Number,Service Address,Provider,Billing Period Start,Billing Period End,Usage (kWh),Demand (kW),Total Amount,Read Type,Rate Schedule,Number of Days
+7834-2901-4455,MTR-00482916,"1250 Innovation Drive, Suite 200, Austin, TX 78701",Austin Energy,2024-01-16,2024-02-14,42380,187.5,5842.60,Actual,GS-TOU-3,30
+7834-2901-4455,MTR-00482916,"1250 Innovation Drive, Suite 200, Austin, TX 78701",Austin Energy,2024-02-15,2024-03-17,38920,172.3,5389.44,Actual,GS-TOU-3,31
+7834-2901-4455,MTR-00482916,"1250 Innovation Drive, Suite 200, Austin, TX 78701",Austin Energy,2024-03-18,2024-04-16,44150,195.8,6102.75,Actual,GS-TOU-3,30
+7834-2901-4455,MTR-00482916,"1250 Innovation Drive, Suite 200, Austin, TX 78701",Austin Energy,2024-04-17,2024-05-16,51230,218.4,7120.97,Estimated,GS-TOU-3,30
+7834-2901-4455,MTR-00482916,"1250 Innovation Drive, Suite 200, Austin, TX 78701",Austin Energy,2024-05-17,2024-06-17,58740,245.2,8198.34,Actual,GS-TOU-3,32
+7834-2901-4455,MTR-00482916,"1250 Innovation Drive, Suite 200, Austin, TX 78701",Austin Energy,2024-06-18,2024-07-17,62100,258.9,8690.10,Actual,GS-TOU-3,30
+7834-2901-4455,MTR-00482916,"1250 Innovation Drive, Suite 200, Austin, TX 78701",Austin Energy,2024-07-18,2024-08-18,64520,267.1,9048.92,Actual,GS-TOU-3,32
+7834-2901-4455,MTR-00482916,"1250 Innovation Drive, Suite 200, Austin, TX 78701",Austin Energy,2024-09-17,2024-10-16,48930,208.5,6832.76,Actual,GS-TOU-3,30
+7834-2901-4455,MTR-00482916,"1250 Innovation Drive, Suite 200, Austin, TX 78701",Austin Energy,2024-10-17,2024-11-15,41280,178.9,5720.16,Actual,GS-TOU-3,30
+7834-2901-4455,MTR-00482916,"1250 Innovation Drive, Suite 200, Austin, TX 78701",Austin Energy,2024-11-16,2024-12-16,39450,169.2,5488.05,Actual,GS-TOU-3,31
+7834-2901-4455,MTR-00482916,"1250 Innovation Drive, Suite 200, Austin, TX 78701",Austin Energy,2024-12-17,2025-01-16,43100,189.7,5945.80,Actual,GS-TOU-3,31
+7834-2901-4455,MTR-00482916,"1250 Innovation Drive, Suite 200, Austin, TX 78701",Austin Energy,2025-01-14,2025-01-16,-2150,,,-298.85,Actual,GS-TOU-3,0

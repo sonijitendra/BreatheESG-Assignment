@@ -1,0 +1,21 @@
+Report ID,Employee ID,Employee Name,Department,Cost Center,Transaction Date,Expense Type,Vendor,Description,Amount,Currency,Origin,Destination,Cabin Class,Trip Type,Distance (km),Nights,Approval Status
+RPT-2024-0891,EMP-1042,Sarah Chen,Engineering,ENG-200,2024-03-15,Airfare,Delta Air Lines,JFK to SFO - Team Offsite,487.00,USD,JFK,SFO,Economy,Round Trip,,0,Approved
+RPT-2024-0891,EMP-1042,Sarah Chen,Engineering,ENG-200,2024-03-15,Hotel,Marriott Union Square,San Francisco 3 nights,789.00,USD,,,,,,3,Approved
+RPT-2024-0891,EMP-1042,Sarah Chen,Engineering,ENG-200,2024-03-17,Taxi,Uber,Airport to hotel,42.50,USD,,,,,,,Approved
+RPT-2024-0923,EMP-1087,James Wilson,Sales,SLS-300,2024-03-22,Airfare,British Airways,LHR to JFK - Client Meeting,2845.00,USD,LHR,JFK,Business,One Way,,0,Approved
+RPT-2024-0923,EMP-1087,James Wilson,Sales,SLS-300,2024-03-22,Hotel,The Westin New York,New York 2 nights,598.00,USD,,,,,,2,Approved
+RPT-2024-0923,EMP-1087,James Wilson,Sales,SLS-300,2024-03-23,Taxi,Yellow Cab,Ground transport Manhattan,28.75,USD,,,,,,,Approved
+RPT-2024-0923,EMP-1087,James Wilson,Sales,SLS-300,2024-03-24,Meals,Restaurant,Client dinner - 4 pax,234.50,USD,,,,,,,Approved
+RPT-2024-0978,EMP-1015,Priya Sharma,Marketing,MKT-100,2024-04-05,Airfare,Lufthansa,FRA to SIN - APAC Conference,1320.00,EUR,FRA,SIN,,One Way,,0,Approved
+RPT-2024-0978,EMP-1015,Priya Sharma,Marketing,MKT-100,2024-04-05,Hotel,Marina Bay Sands,Singapore 4 nights,1840.00,SGD,,,,,,4,Approved
+RPT-2024-0978,EMP-1015,Priya Sharma,Marketing,MKT-100,2024-04-07,Rail,Deutsche Bahn,Frankfurt Hbf to Munich Hbf,89.00,EUR,,,,,393,,Approved
+RPT-2024-1001,EMP-1042,Sarah Chen,Engineering,ENG-200,2024-04-18,Car Rental,Enterprise,Denver office visit - 3 days,186.00,USD,,,,,,,,Approved
+RPT-2024-1001,EMP-1042,Sarah Chen,Engineering,ENG-200,2024-04-18,Airfare,United Airlines,SFO to DEN - Denver office,312.00,USD,SFO,DEN,Economy,Round Trip,,0,Approved
+RPT-2024-1045,EMP-1087,James Wilson,Sales,SLS-300,2024-05-10,Airfare,Emirates,DXB to LHR - Middle East Sales,3200.00,GBP,DXB,LHR,Business,One Way,,0,Approved
+RPT-2024-1045,EMP-1087,James Wilson,Sales,SLS-300,2024-05-10,Hotel,Jumeirah Beach Hotel,Dubai 5 nights,4500.00,AED,,,,,,5,Approved
+RPT-2024-1045,EMP-1087,James Wilson,Sales,SLS-300,2024-05-12,Taxi,Careem,Airport transfer + meetings,380.00,AED,,,,,,,Approved
+RPT-2024-1102,EMP-1063,Marcus Brown,Finance,FIN-400,2024-05-20,Personal Expense,Amazon,Headphones - personal,279.00,USD,,,,,,,,Rejected
+RPT-2024-1115,EMP-1063,Marcus Brown,Finance,FIN-400,2024-06-01,Airfare,Air France,CDG to LHR - Board Meeting,245.00,EUR,CDG,LHR,Economy,Round Trip,,0,Approved
+RPT-2024-1115,EMP-1063,Marcus Brown,Finance,FIN-400,2024-06-01,Rail,Eurostar,London St Pancras to Paris Gare du Nord,185.00,GBP,,,,,492,,Approved
+RPT-2024-1115,EMP-1063,Marcus Brown,Finance,FIN-400,2024-06-02,Taxi,Bolt,Paris ground transport,35.00,EUR,,,,,,,Approved
+RPT-2024-1130,EMP-1042,Sarah Chen,Engineering,ENG-200,2024-06-15,Airfare,Delta Air Lines,JFK to LAX - Conference,387.00,USD,JFK,LAX,Economy,Round Trip,,0,Approved

@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: breathe-esg-backend
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn breathe_esg.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: "*"
+    database:
+      name: breathe-esg-db
+      plan: free
+
+databases:
+  - name: breathe-esg-db
+    plan: free
